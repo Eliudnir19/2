@@ -1,0 +1,23 @@
+size(1728,1080);
+
+PImage pic=loadImage("1.jpg");
+pic.resize(width,height);
+
+
+background(255);
+
+noStroke();
+
+float threshold=110;  //
+
+for(int x=0;x<width;x+=2){
+  for(int y=0;y<height;y+=10){
+    color c=pic.get(x,y);
+    if(brightness(c)<threshold){
+      
+      fill(50);      
+      float diameter=map(brightness(c),threshold,0,2,12); //     
+      ellipse(x,y,diameter,diameter);
+    }
+  }
+}
